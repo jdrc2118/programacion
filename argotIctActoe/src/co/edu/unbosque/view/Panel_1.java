@@ -33,6 +33,7 @@ public class Panel_1 extends JPanel {
         tablero [i][j]= new JTextField();
         tablero[i][j].setHorizontalAlignment(SwingConstants.CENTER);
         tablero[i][j].setFont(fuente);
+        String a= "subir cambios";
         add(tablero[i][j]);
 		
 		
