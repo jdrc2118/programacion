@@ -12,7 +12,7 @@ public class View extends JFrame{
 		
 	public Panel_2 panel_2;
 	public Panel_1 panel_1;
-	public ImageIcon imagen;
+	
 	
 		
 		public View() {
@@ -47,12 +47,7 @@ public class View extends JFrame{
 		}
 
 
-		@Override
-		public void paintComponents(Graphics g) {
-			Dimension tam=getSize();
-			imagen = new ImageIcon(new ImageIcon(getClass().getResource("..//imagenes//triqui.png")).getImage());
-			g.drawImage(imagen.getImage(), 0, 0, tam.width, tam.height, null);
-		}
+	
 		
 		
 		

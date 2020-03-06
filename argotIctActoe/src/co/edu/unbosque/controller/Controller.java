@@ -31,11 +31,7 @@ public class Controller implements ActionListener  {
 		v.panel_2.jugar.addActionListener(this);
 		
 		
-		for(int i = 0; i<3; i++) {
-			for(int j = 0; j<3; j++) {
-				v.panel_1.tablero[i][j].addActionListener(this);
-				
-			}
+		
 			
 			
 		}
@@ -48,7 +44,7 @@ public class Controller implements ActionListener  {
 		
 		
 		
-	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
