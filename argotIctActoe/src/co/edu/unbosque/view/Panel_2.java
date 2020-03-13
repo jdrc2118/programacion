@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 public class Panel_2 extends JPanel{
 	
 	
-	public JButton jugar;
-	public ImageIcon imagen;
+	private JButton jugar;
+	private ImageIcon imagen;
 	
 	public Panel_2() {
 		
@@ -32,6 +32,22 @@ public class Panel_2 extends JPanel{
 	}
 	
 	
+	public JButton getJugar() {
+		return jugar;
+	}
+
+	public void setJugar(JButton jugar) {
+		this.jugar = jugar;
+	}
+
+	public ImageIcon getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(ImageIcon imagen) {
+		this.imagen = imagen;
+	}
+
 	@Override
 	public void paintComponents(Graphics g) {
 		Dimension tam=getSize();

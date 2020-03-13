@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 
 public class Panel_1 extends JPanel {
 	
-	public JTextField[][] tablero;
+	private JTextField[][] tablero;
 	private int filas=3;
 	private int columnas=3;
 	
@@ -33,7 +33,6 @@ public class Panel_1 extends JPanel {
         tablero [i][j]= new JTextField();
         tablero[i][j].setHorizontalAlignment(SwingConstants.CENTER);
         tablero[i][j].setFont(fuente);
-        String a= "subir cambios";
         add(tablero[i][j]);
 		
 		
@@ -42,11 +41,34 @@ public class Panel_1 extends JPanel {
 		
 		
 		
-		
-		
-
-		
-	
 	}
+	
+	
+
+	public JTextField[][] getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(JTextField[][] tablero) {
+		this.tablero = tablero;
+	}
+
+	public int getFilas() {
+		return filas;
+	}
+
+	public void setFilas(int filas) {
+		this.filas = filas;
+	}
+
+	public int getColumnas() {
+		return columnas;
+	}
+
+	public void setColumnas(int columnas) {
+		this.columnas = columnas;
+	}
+	
+	
 
 }
