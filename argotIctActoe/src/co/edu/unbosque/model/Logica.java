@@ -9,8 +9,7 @@ public class Logica {
 	
 	private String ficha1;
 	private String ficha2;
-	private int posicion1;
-	private int posicion2;
+	
 	
 	
 	
@@ -30,18 +29,359 @@ public class Logica {
 	
 	
 	public String jugar() {
+		
+
+		verificarLetras();
+		logica1();
+		esquinas();
+		filas();
+		columnas();
+		buscarEmpate();
+//		for(int i=0;i<3;i++) {
+//			for(int j=0;j<3;j++) {
+//				if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+//					tablero[2][2]=ficha2;
+//					System.out.println(tablero[2][2]);
+//					
+//					
+//					
+//					}
+//				}
+//			}
+		return ficha2;
+		}
+
+	public boolean verificarLetras() {
+		
+		
+		int aux = 0;
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {
-				if(tablero[i][j]==ficha1) {
-					tablero[2][2]=ficha2;
-					posicion1=2;
-					posicion2=2;
+				if (tablero[i][j].equalsIgnoreCase(ficha1)|| tablero[i][j].equalsIgnoreCase(ficha2)|| tablero[i][j].equalsIgnoreCase("")) {
+					
+					aux++;
+					
+					if(i==2 && j==2 && aux==9) {
+						
+						return true;
+						
+					}else if (i==2 && j==2 && aux!=9){
+						
+						return false;
+					}
+				}else {
+					
+					return false; 
+					
+				}
+			}
+		}
+		
+		return false;
+			
+		}
+	
+	public void logica1() {
+		
+		
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				
+			if(tablero[1][1].equalsIgnoreCase(ficha1)){
+				
+				tablero[0][0]=ficha2;
+				
+			}else if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+					tablero[1][1]=ficha2;
+					System.out.println(tablero[1][1]);
+					
+					
 					
 					}
 				}
 			}
-		return ficha2;
+		
+		
+		
+	
+		
+	}
+	
+	public void filas() {
+		
+		int i=0;
+		int aux=0;
+		int aux1=0;
+		int aux2=0;
+		
+		
+		for(int j=0;j<3;j++) {
+		
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux++;
+			
+			}
+			
+			
 		}
+		
+		if(aux>1) {
+			fila0();
+		}
+		i=1;
+		for(int j=0;j<3;j++) {
+			
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux1++;
+			
+			}
+			
+			
+		}
+		
+		if(aux1>1) {
+			fila1();
+		}
+		i=2;
+		for(int j=0;j<3;j++){
+			
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux2++;
+			
+			}
+		}
+		i++;
+		if(aux2>1) {
+			fila2();
+		}
+		
+		
+		
+		
+	
+		
+	}
+	
+public void columnas() {
+		
+		int j=0;
+		int aux=0;
+		int aux1=0;
+		int aux2=0;
+		
+		
+		for(int i=0;i<3;i++) {
+		
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux++;
+			
+			}
+			
+			
+		}
+		
+		if(aux>1) {
+			columna0();
+		}
+		j=1;
+		for(int i=0;i<3;i++) {
+			
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux1++;
+			
+			}
+			
+			
+		}
+		
+		if(aux1>1) {
+			columna1();
+		}
+		j=2;
+		for(int i=0;i<3;i++){
+			
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux2++;
+			
+			}
+		}
+		j++;
+		if(aux2>1) {
+			columna2();
+		}
+		
+		
+		
+		
+	
+		
+	}
+	public void esquinas() {
+	
+		 if(tablero[0][2].equalsIgnoreCase(ficha1) && tablero[1][1].equalsIgnoreCase(ficha1)) {
+			
+			tablero[2][0]=ficha2;
+			
+		}else if(tablero[1][1].equalsIgnoreCase(ficha1) && tablero[2][0].equalsIgnoreCase(ficha1)) {
+			
+			tablero[0][2]=ficha2;
+			
+		}
+		
+		
+	}
+	
+	
+	
+	public void fila0() {
+		
+		if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[0][2].equalsIgnoreCase(ficha1)) {
+			
+			tablero[0][1]=ficha2;
+			
+		}else if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[0][1].equalsIgnoreCase(ficha1)) {
+			
+			tablero[0][2]=ficha2;
+			
+		}else if(tablero[0][1].equalsIgnoreCase(ficha1) && tablero[0][2].equalsIgnoreCase(ficha1)) {
+			
+			tablero[0][0]=ficha2;
+			
+		}
+		
+		
+		
+	}
+	public void fila1() {
+		
+		if(tablero[1][0].equalsIgnoreCase(ficha1) && tablero[1][2].equalsIgnoreCase(ficha1)) {
+			
+			tablero[1][1]=ficha2;
+			
+		}else if(tablero[1][0].equalsIgnoreCase(ficha1) && tablero[1][1].equalsIgnoreCase(ficha1)) {
+			
+			tablero[1][2]=ficha2;
+			
+		}else if(tablero[1][1].equalsIgnoreCase(ficha1) && tablero[1][2].equalsIgnoreCase(ficha1)) {
+			
+			tablero[1][0]=ficha2;
+			
+		}
+		
+		
+		
+	}
+	
+public void fila2() {
+		
+		if(tablero[2][0].equalsIgnoreCase(ficha1) && tablero[2][2].equalsIgnoreCase(ficha1)) {
+			
+			tablero[2][1]=ficha2;
+			
+		}else if(tablero[2][0].equalsIgnoreCase(ficha1) && tablero[2][1].equalsIgnoreCase(ficha1)) {
+			
+			tablero[2][2]=ficha2;
+			
+		}else if(tablero[2][1].equalsIgnoreCase(ficha1) && tablero[2][2].equalsIgnoreCase(ficha1)) {
+			
+			tablero[2][0]=ficha2;
+			
+		}
+		
+		
+		
+	}
+		
+
+
+public void columna0() {
+	
+	if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[2][0].equalsIgnoreCase(ficha1)) {
+		
+		tablero[1][0]=ficha2;
+		
+	}else if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[1][0].equalsIgnoreCase(ficha1)) {
+		
+		tablero[2][0]=ficha2;
+		
+	}else if(tablero[1][0].equalsIgnoreCase(ficha1) && tablero[2][0].equalsIgnoreCase(ficha1)) {
+		
+		tablero[0][0]=ficha2;
+		
+	}
+	
+	
+	
+}
+
+public void columna1() {
+	
+	if(tablero[0][1].equalsIgnoreCase(ficha1) && tablero[2][1].equalsIgnoreCase(ficha1)) {
+		
+		tablero[1][1]=ficha2;
+		
+	}else if(tablero[0][1].equalsIgnoreCase(ficha1) && tablero[1][1].equalsIgnoreCase(ficha1)) {
+		
+		tablero[2][1]=ficha2;
+		
+	}else if(tablero[1][1].equalsIgnoreCase(ficha1) && tablero[2][1].equalsIgnoreCase(ficha1)) {
+		
+		tablero[0][1]=ficha2;
+		
+	}
+	
+	
+	
+}
+
+public void columna2() {
+	
+	if(tablero[0][2].equalsIgnoreCase(ficha1) && tablero[2][2].equalsIgnoreCase(ficha1)) {
+		
+		tablero[1][2]=ficha2;
+		
+	}else if(tablero[0][2].equalsIgnoreCase(ficha1) && tablero[1][2].equalsIgnoreCase(ficha1)) {
+		
+		tablero[2][2]=ficha2;
+		
+	}else if(tablero[1][2].equalsIgnoreCase(ficha1) && tablero[2][2].equalsIgnoreCase(ficha1)) {
+		
+		tablero[0][2]=ficha2;
+		
+	}
+	
+	
+	
+}
+	public boolean buscarEmpate( ) {
+		int aux= 0;
+		int valor = 9;
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				
+				if(tablero[i][j].equalsIgnoreCase("")) {
+					
+					
+					return false;
+					
+					
+				}else {
+					
+					return true;
+					
+				}
+					
+				
+				}
+			}
+		return false;
+	}
+	
+		
+
+
+
+
 
 	public String[][] getTablero() {
 		return tablero;
@@ -83,22 +423,12 @@ public class Logica {
 		this.ficha2 = ficha2;
 	}
 
-	public int getPosicion1() {
-		return posicion1;
-	}
 
-	public void setPosicion1(int posicion1) {
-		this.posicion1 = posicion1;
-	}
 
-	public int getPosicion2() {
-		return posicion2;
-	}
 
-	public void setPosicion2(int posicion2) {
-		this.posicion2 = posicion2;
-	}
+
 	
+
 	
 	
 	

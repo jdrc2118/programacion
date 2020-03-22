@@ -15,6 +15,7 @@ public class Panel_1 extends JPanel {
 	private JTextField[][] tablero;
 	private int filas=3;
 	private int columnas=3;
+
 	
 	public Panel_1() {
 		
@@ -44,6 +45,8 @@ public class Panel_1 extends JPanel {
 	}
 	
 	
+	
+	
 
 	public JTextField[][] getTablero() {
 		return tablero;
@@ -68,6 +71,9 @@ public class Panel_1 extends JPanel {
 	public void setColumnas(int columnas) {
 		this.columnas = columnas;
 	}
+
+
+	
 	
 	
 

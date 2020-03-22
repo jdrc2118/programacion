@@ -42,24 +42,70 @@ public class Controller implements ActionListener  {
 		
 		if(e.getActionCommand().equals("Jugar")) {
 			
-			for(int i = 0;i<3;i++) {	
-				for(int j=0;j<3;j++) {
-					
-					
-				if(v.getPanel_1().getTablero()[i][j].getText().equals("X")) {
-					
-					
-					
-				l.getTablero()[i][j]="X";
-				System.out.println(l.getTablero()[i][j]);
-			  }
-			}
-		}
+			conexion_matrices();
+			verificarLetras();
+		
 			
+						
+						
+					  }
+					
+				
+			
+			
+			
+		
 
 		
-		
 		}
+
+
+
+
+	public void conexion_matrices() {
+
+		
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				
+				l.getTablero()[i][j]=v.getPanel_1().getTablero()[i][j].getText();
+				
+				
+			    }
+			}
+		
+		l.jugar();
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				
+				v.getPanel_1().getTablero()[i][j].setText(l.getTablero()[i][j]);
+				
+				
+			    }
+			}
+		
+		
+	}
+	
+	public void verificarLetras() {
+		
+		if(!l.verificarLetras()) {
+			
+			v.mostrarMensaje("Ingreso una letra no valida");
+			
+		}
+	}
+	public void verificarempate() {
+			
+			if(l.buscarEmpate()) {
+				
+				v.mostrarMensaje("empate");
+				
+			}
+		
+		
+		
+	}
 		
 		
 	}
@@ -69,4 +115,4 @@ public class Controller implements ActionListener  {
 	
 
 
-}
+

@@ -6,6 +6,7 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class View extends JFrame{
@@ -53,6 +54,12 @@ public class View extends JFrame{
 			 panel_fondo = new Panel_fondo();
 			 panel_fondo.setBounds(0,0,710,710);
 			 add(panel_fondo);
+			
+			
+		}
+		
+		public void mostrarMensaje(String mensaje){
+			JOptionPane.showMessageDialog(null, mensaje);
 			
 			
 		}
