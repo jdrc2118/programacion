@@ -44,7 +44,7 @@ public class Controller implements ActionListener  {
 			
 			conexion_matrices();
 			verificarLetras();
-			verificarempate();
+			verificarGanador();
 		
 			
 						
@@ -96,7 +96,7 @@ public class Controller implements ActionListener  {
 			
 		}
 	}
-	public void verificarempate() {
+	public void verificarGanador() {
 			
 			if(l.ganaJugador()) {
 				

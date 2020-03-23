@@ -4,8 +4,8 @@ public class Logica {
 	
 	
 	private String tablero[][];
-	private int filas=3;
-	private int columnas=3;
+	private int filas;
+	private int columnas;
 	
 	private String ficha1;
 	private String ficha2;
@@ -16,7 +16,8 @@ public class Logica {
 	
 	public Logica() {
 		
-		
+		filas=3;
+		columnas=3;
 		tablero = new String[filas][columnas];
 		
 		ficha1="X";
