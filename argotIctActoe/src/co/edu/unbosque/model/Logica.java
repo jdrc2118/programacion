@@ -31,7 +31,7 @@ public class Logica {
 	public String jugar() {
 		
 	
-		
+		mayusculas();
 		logica1();
 		
 		if(filas() && x<3) {
@@ -44,7 +44,7 @@ public class Logica {
 				
 		}
 		
-		letreroEmpate();
+	
 //		for(int i=0;i<3;i++) {
 //			for(int j=0;j<3;j++) {
 //				if(tablero[i][j].equalsIgnoreCase(ficha1)) {
@@ -58,6 +58,31 @@ public class Logica {
 //			}
 		return ficha2;
 		}
+	
+	public void mayusculas() {
+		
+	
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				
+				if(tablero[i][j].equals("x")) {
+					tablero[i][j]="X";
+				
+					
+					
+
+					
+					
+					
+					
+				}
+				
+			}
+		}
+		
+		
+		
+	}
 
 	public boolean verificarLetras() {
 		
@@ -280,8 +305,27 @@ public boolean columnas() {
 			tablero[0][2]=ficha2;
 			a=true;
 			
+		 	}
 		}
-		}
+		if(a==false) {
+			 if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[2][2].equalsIgnoreCase(ficha1)) {
+				
+				tablero[1][0]=ficha2;
+				a=true;
+				
+			 	}
+			}
+		if(a==false) {
+			 if(tablero[2][0].equalsIgnoreCase(ficha1) && tablero[0][2].equalsIgnoreCase(ficha1)) {
+				
+				tablero[1][0]=ficha2;
+				a=true;
+				
+			 	}
+			}
+		
+		
+		
 		return a;
 		
 	}
@@ -439,127 +483,10 @@ public void columna2() {
 	
 
 		
-//public boolean ganapc() {
-//		
-//		int j=0;
-//		int aux=0;
-//		int aux1=0;
-//		int aux2=0;
-//		int aux3=0;
-//		int aux4=0;
-//		int aux5=0;
-//		boolean a=false;
-//		
-//		if(a==false) {
-//		for(int i=0;i<3;i++) {
-//			//estudio de las posiciones en la primer columna
-//			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
-//				aux++;
-//			
-//			}
-//			
-//			
-//		}
-//		
-//		if(aux==3) {
-//			return true;
-//		
-//		}
-//		
-//		}
-//			
-//		
-//		if(a==false) {
-//			j=1;
-//		for(int i=0;i<3;i++) {
-//			//estudio de las posiciones en la segunda columna
-//			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
-//				aux1++;
-//			
-//			}
-//			
-//			
-//		}
-//		
-//		if(aux1==3) {
-//			return true;
-//		}
-//		}
-//		if(a==false) {
-//		j=2;
-//		for(int i=0;i<3;i++){
-//			//estudio de las posiciones en la tercera columna
-//			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
-//				aux2++;
-//			
-//			}
-//		}
-//		
-//		if(aux2==3) {
-//			return true;
-//		}
-//		}
-//		
-//		int i=0;
-//		
-//		if(a==false) {
-//			for( j=0;j<3;j++) {
-//				//estudio de las posiciones en la primer columna
-//				if(tablero[i][j].equalsIgnoreCase(ficha2)) {
-//					aux++;
-//				
-//				}
-//				
-//				
-//			}
-//			
-//			if(aux==3) {
-//				return true;
-//			
-//			}
-//			
-//			}
-//				
-//			
-//			if(a==false) {
-//				i=1;
-//			for(j=0;i<3;i++) {
-//				//estudio de las posiciones en la segunda columna
-//				if(tablero[i][j].equalsIgnoreCase(ficha2)) {
-//					aux1++;
-//				
-//				}
-//				
-//				
-//			}
-//			
-//			if(aux1==3) {
-//				return true;
-//			}
-//			}
-//			if(a==false) {
-//			j=2;
-//			for(int i=0;i<3;i++){
-//				//estudio de las posiciones en la tercera columna
-//				if(tablero[i][j].equalsIgnoreCase(ficha1)) {
-//					aux2++;
-//				
-//				}
-//			}
-//			
-//			if(aux2==3) {
-//				return true;
-//			}
-//			}
-//		
-//		
-//		
-//		return false;
-//		
-//	}
+
 	
 	
-	public boolean prueba() {
+	public boolean ganaJugador() {
 	
 		int i = 0;
 		int aux =0;
@@ -606,23 +533,90 @@ public void columna2() {
 			}
 			
 		}
+		if(a==false) {
+			if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[1][1].equalsIgnoreCase(ficha1) && tablero[2][2].equalsIgnoreCase(ficha1)) {
+				a=true;
+			}
+			
+		}
+		if(a==false) {
+			if(tablero[2][0].equalsIgnoreCase(ficha1) && tablero[1][1].equalsIgnoreCase(ficha1) && tablero[0][2].equalsIgnoreCase(ficha1)) {
+				a=true;
+			}
+			
+		}
 		
-//		for(int x=0;x<9;x++) {
-//			int i= 0;
-//			for(int j=0;j<3;j++) {
-//				if() {
-//					
-//				}
-//				
-//			}
-//		}
-		
-		
+	
 		return a;
 		
 		
 	}
 
+	public boolean ganaPc() {
+		
+		int i = 0;
+		int aux =0;
+		boolean a = false;
+		if(a==false) {
+		while(i<3) {
+			
+			for(int j = 0;j<3;j++) {
+				if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+					aux++;
+				}
+			}
+			if(aux==3) {
+				a=true;
+				i=3;
+			}else {
+				i++;
+				aux=0;
+			}
+		
+		}
+		}
+		int j=0;
+		int aux1 = 0;
+		
+		if(a==false) {
+			while(j<3) {
+				
+				for(int x = 0;x<3;x++) {
+					if(tablero[x][j].equalsIgnoreCase(ficha2)) {
+						aux1++;
+					}
+				}
+				if(aux1==3) {
+					a=true;
+					j=3;
+					
+				}else {
+					
+					j++;
+					aux1=0;
+				}
+			
+			}
+			
+		}
+		if(a==false) {
+			if(tablero[0][0].equalsIgnoreCase(ficha2) && tablero[1][1].equalsIgnoreCase(ficha2) && tablero[2][2].equalsIgnoreCase(ficha2)) {
+				a=true;
+			}
+			
+		}
+		if(a==false) {
+			if(tablero[2][0].equalsIgnoreCase(ficha2) && tablero[1][1].equalsIgnoreCase(ficha2) && tablero[0][2].equalsIgnoreCase(ficha2)) {
+				a=true;
+			}
+			
+		}
+		
+	
+		return a;
+		
+		
+	}
 
 
 

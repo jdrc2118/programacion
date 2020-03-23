@@ -98,11 +98,14 @@ public class Controller implements ActionListener  {
 	}
 	public void verificarempate() {
 			
-			if(l.prueba()) {
+			if(l.ganaJugador()) {
 				
-				v.mostrarMensaje("gano x");
+				v.mostrarMensaje("gano X");
 				
 				
+			}else if(l.ganaPc()) {	
+				
+				v.mostrarMensaje("gano O");
 				
 			} else if(l.letreroEmpate()) {
 				
