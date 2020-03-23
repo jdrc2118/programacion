@@ -44,6 +44,7 @@ public class Controller implements ActionListener  {
 			
 			conexion_matrices();
 			verificarLetras();
+			verificarempate();
 		
 			
 						
@@ -97,9 +98,16 @@ public class Controller implements ActionListener  {
 	}
 	public void verificarempate() {
 			
-			if(l.buscarEmpate()) {
+			if(l.prueba()) {
+				
+				v.mostrarMensaje("gano x");
+				
+				
+				
+			} else if(l.letreroEmpate()) {
 				
 				v.mostrarMensaje("empate");
+				
 				
 			}
 		
