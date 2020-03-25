@@ -45,6 +45,8 @@ public class Controller implements ActionListener  {
 			conexion_matrices();
 			verificarLetras();
 			verificarGanador();
+			
+			//fichaIncorrecta();
 		
 			
 						
@@ -87,6 +89,14 @@ public class Controller implements ActionListener  {
 		
 		
 	}
+	
+//	public void fichaIncorrecta() {
+//		
+//		if(!l.logica1()) {
+//			v.mostrarMensaje("ficha incorrecta");
+//		}
+//		
+//	}
 	
 	public void verificarLetras() {
 		

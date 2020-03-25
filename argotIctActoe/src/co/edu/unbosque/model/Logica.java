@@ -1,5 +1,7 @@
 package co.edu.unbosque.model;
 
+import java.util.Random;
+
 public class Logica {
 	
 	
@@ -9,7 +11,7 @@ public class Logica {
 	
 	private String ficha1;
 	private String ficha2;
-	private int x;
+	
 	
 	
 	
@@ -22,7 +24,7 @@ public class Logica {
 		
 		ficha1="X";
 		ficha2="O";
-	    x = 0;
+	   
 		}
 		
 		
@@ -31,11 +33,18 @@ public class Logica {
 	
 	public String jugar() {
 		
-	
-		mayusculas();
-		logica1();
 		
-		if(filas() && x<3) {
+		mayusculas();
+		
+		if(logica1()) {
+		
+		}else if(circuloFilasGanar()) {
+			
+		}else if(circuloColumnasGanar()) {	
+			
+		}else if(circuloEsquinasGanar()) {
+			
+		}else if(filas() ) {
 			
 		}else if(columnas()  ) {
 			
@@ -43,20 +52,24 @@ public class Logica {
 		}else if(esquinas() ){
 			
 				
-		}
 		
+		}else if(casosEspecialeciales()) {
+			
+		
+			
+		
+		}else if(circuloFilas()){
+			
+			
+		}else if(circuloColumnas()) {
+			
+		}else if(circuloEsquinas()) {
+			
+		}else if(colocarCirculo()) {
+			
+		}
 	
-//		for(int i=0;i<3;i++) {
-//			for(int j=0;j<3;j++) {
-//				if(tablero[i][j].equalsIgnoreCase(ficha1)) {
-//					tablero[2][2]=ficha2;
-//					System.out.println(tablero[2][2]);
-//					
-//					
-//					
-//					}
-//				}
-//			}
+		
 		return ficha2;
 		}
 	
@@ -115,26 +128,53 @@ public class Logica {
 			
 		}
 	
-	public void logica1() {
+	public boolean logica1() {
 		
-		
+		boolean a=false;
+		int aux = 0;
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {
 				
-			if(tablero[1][1].equalsIgnoreCase(ficha1)){
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+					aux++;
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+					aux++;
+				}
+			}
+		}
+			
+			if(a==false && aux==1) {	
+				
+				for(int i=0;i<3;i++) {
+					for(int j=0;j<3;j++) {		
+			
+		
+			if(tablero[1][1].equalsIgnoreCase(ficha1) && aux==1){
 				// primera jugada si el jugador selecciona la posicion del centro 
 				tablero[0][0]=ficha2;
+				a=true;
 				
-			}else if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+			}else if(tablero[i][j].equalsIgnoreCase(ficha1) && aux==1) {
 				//posicion fija si el jugado escoge cualquier posicion que no sea el centro  
 					tablero[1][1]=ficha2;
 				
 					
+				a=true;
 					
-					
-					}
+			
+			}
+//			else if(tablero[i][j].equalsIgnoreCase(ficha2) && aux==1) {
+//				
+//				a=false;
+//				
+//				}
+			}
+			
 				}
 			}
+			
+		return a;
 		
 		
 		
@@ -168,10 +208,11 @@ public class Logica {
 			
 		}
 		
-		if(aux>1) {
+		if(aux==2 && aux3==0) {
 			fila0();
 			a=true;
-			x=aux+aux3;
+			
+			
 		}
 		}
 		
@@ -190,10 +231,11 @@ public class Logica {
 			
 		}
 		
-		if(aux1>1) {
+		if(aux1==2 && aux4==0) {
 			fila1();
 			a=true;
-			x=aux1+aux4;
+			
+			
 		}
 		i=2;
 		for(int j=0;j<3;j++){
@@ -207,15 +249,16 @@ public class Logica {
 			}
 		}
 		
-		if(aux2>1) {
+		if(aux2==2 && aux5==0) {
 			fila2();
 			a=true;
-			x=aux2+aux5;
+			
 			
 		}
 			
 		
 		}
+		
 		return a;
 		
 	
@@ -228,6 +271,10 @@ public boolean columnas() {
 		int aux=0;
 		int aux1=0;
 		int aux2=0;
+		int aux3=0;
+		int aux4=0;
+		int aux5=0;
+	
 		boolean a = false;
 		
 		if(a==false) {
@@ -237,11 +284,14 @@ public boolean columnas() {
 				aux++;
 			
 			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux3++;
+			}
 			
 			
 		}
 		
-		if(aux>1) {
+		if(aux==2 && aux3==0) {
 			columna0();
 			a=true;
 		}
@@ -255,11 +305,14 @@ public boolean columnas() {
 				aux1++;
 			
 			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux4++;
+			}
 			
 			
 		}
 		
-		if(aux1>1) {
+		if(aux1==2 && aux4==0) {
 			columna1();
 			a=true;
 		}
@@ -273,13 +326,17 @@ public boolean columnas() {
 				aux2++;
 			
 			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux5++;
+			}
 		}
 		
-		if(aux2>1) {
+		if(aux2==2 && aux5==0) {
 			columna2();
 			a=true;
 		}
 		}
+		
 		return a;
 		
 		
@@ -324,6 +381,7 @@ public boolean columnas() {
 				
 			 	}
 			}
+	
 		
 		
 		
@@ -613,8 +671,901 @@ public void columna2() {
 			
 		}
 		
+		
 	
 		return a;
+		
+		
+	}
+	public boolean circuloFilasGanar() {
+		
+		int i=0;
+		int aux=0;
+		int aux1=0;
+		int aux2=0;
+		int aux3=0;
+		int aux4=0;
+		int aux5=0;
+	
+		boolean a =false;
+		
+		if(a==false) {
+		for(int j=0;j<3;j++) {
+		//estudio de las posiciones en la primera fila
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux3++;
+			}
+			
+			
+		}
+		
+		if(aux3==2 && aux==0) {
+			circuloFila0Ganar();
+			a=true;
+		}
+		}
+		
+		if(a==false) {
+		i=1;
+		for(int j=0;j<3;j++) {
+			//estudio de las posiciones en la segunda fila
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux1++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux4++;
+			}
+			
+			
+		}
+		
+		if(aux4==2 && aux1==0) {
+			circuloFila1Ganar();
+			a=true;
+		
+		}
+		i=2;
+		for(int j=0;j<3;j++){
+			//estudio de las posiciones en la tercer fila
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux2++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux5++;
+			}
+		}
+		
+		if(aux5==2 && aux2==0) {
+			circuloFila2Ganar();
+			a=true;
+			
+			
+		}
+			
+		
+		}
+	
+	
+		
+				
+		
+		return a;
+		
+	}
+	
+	public void circuloFila0Ganar() {
+		// revision de la primera fila
+		if(tablero[0][0].equalsIgnoreCase(ficha2) && tablero[0][2].equalsIgnoreCase(ficha2)) {
+			
+			tablero[0][1]=ficha2;
+			
+		}else if(tablero[0][0].equalsIgnoreCase(ficha2) && tablero[0][1].equalsIgnoreCase(ficha2)) {
+			
+			tablero[0][2]=ficha2;
+			
+		}else if(tablero[0][1].equalsIgnoreCase(ficha2) && tablero[0][2].equalsIgnoreCase(ficha2)) {
+			
+			tablero[0][0]=ficha2;
+			
+		}
+		
+		
+		
+	}
+	public void circuloFila1Ganar() {
+		// revision de la segunda fila
+		if(tablero[1][0].equalsIgnoreCase(ficha2) && tablero[1][2].equalsIgnoreCase(ficha2)) {
+			
+			tablero[1][1]=ficha2;
+			
+		}else if(tablero[1][0].equalsIgnoreCase(ficha2) && tablero[1][1].equalsIgnoreCase(ficha2)) {
+			
+			tablero[1][2]=ficha2;
+			
+		}else if(tablero[1][1].equalsIgnoreCase(ficha2) && tablero[1][2].equalsIgnoreCase(ficha2)) {
+			
+			tablero[1][0]=ficha2;
+			
+		}
+		
+		
+		
+	}
+	
+	public void circuloFila2Ganar() {
+	// revision de la tercera fila
+		if(tablero[2][0].equalsIgnoreCase(ficha2) && tablero[2][2].equalsIgnoreCase(ficha2)) {
+			
+			tablero[2][1]=ficha2;
+			
+		}else if(tablero[2][0].equalsIgnoreCase(ficha2) && tablero[2][1].equalsIgnoreCase(ficha2)) {
+			
+			tablero[2][2]=ficha2;
+			
+		}else if(tablero[2][1].equalsIgnoreCase(ficha2) && tablero[2][2].equalsIgnoreCase(ficha2)) {
+			
+			tablero[2][0]=ficha2;
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	public boolean circuloColumnasGanar() {
+		
+		int j=0;
+		int aux=0;
+		int aux1=0;
+		int aux2=0;
+		int aux3=0;
+		int aux4=0;
+		int aux5=0;
+		boolean a = false;
+		
+		if(a==false) {
+		for(int i=0;i<3;i++) {
+			//estudio de las posiciones en la primer columna
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux3++;
+			}
+			
+			
+		}
+		
+		if(aux3==2 && aux==0) {
+			circuloColumna0Ganar();
+			a=true;
+		}
+		}
+		
+		if(a==false) {
+		j=1;
+		for(int i=0;i<3;i++) {
+			//estudio de las posiciones en la segunda columna
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux1++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux4++;
+			}
+			
+			
+		}
+		
+		if(aux4==2 && aux1==0) {
+			circuloColumna1Ganar();
+			a=true;
+		}
+		}
+		
+		if(a==false) {
+		j=2;
+		for(int i=0;i<3;i++){
+			//estudio de las posiciones en la tercera columna
+			if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+				aux2++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux5++;
+			}
+		}
+		
+		if(aux5==2 && aux2==0) {
+			circuloColumna2Ganar();
+			a=true;
+		}
+		}
+	
+		
+				
+		
+		
+		
+		
+		return a;
+		
+	}
+	
+
+public void circuloColumna0Ganar() {
+	// revision de la primera columna
+	if(tablero[0][0].equalsIgnoreCase(ficha2) && tablero[2][0].equalsIgnoreCase(ficha2)) {
+		
+		tablero[1][0]=ficha2;
+		
+	}else if(tablero[0][0].equalsIgnoreCase(ficha2) && tablero[1][0].equalsIgnoreCase(ficha2)) {
+		
+		tablero[2][0]=ficha2;
+		
+	}else if(tablero[1][0].equalsIgnoreCase(ficha2) && tablero[2][0].equalsIgnoreCase(ficha2)) {
+		
+		tablero[0][0]=ficha2;
+		
+	}
+	
+	
+	
+}
+
+public void circuloColumna1Ganar() {
+	// revision de la segunda columna
+	
+	if(tablero[0][1].equalsIgnoreCase(ficha2) && tablero[2][1].equalsIgnoreCase(ficha2)) {
+		
+		tablero[1][1]=ficha2;
+		
+	}else if(tablero[0][1].equalsIgnoreCase(ficha2) && tablero[1][1].equalsIgnoreCase(ficha2)) {
+		
+		tablero[2][1]=ficha2;
+		
+	}else if(tablero[1][1].equalsIgnoreCase(ficha2) && tablero[2][1].equalsIgnoreCase(ficha2)) {
+		
+		tablero[0][1]=ficha2;
+		
+	}
+	
+	
+	
+}
+
+public void circuloColumna2Ganar() { 
+	
+	// revision de la tercera columna
+	
+	if(tablero[0][2].equalsIgnoreCase(ficha2) && tablero[2][2].equalsIgnoreCase(ficha2)) {
+		
+		tablero[1][2]=ficha2;
+		
+	}else if(tablero[0][2].equalsIgnoreCase(ficha2) && tablero[1][2].equalsIgnoreCase(ficha2)) {
+		
+		tablero[2][2]=ficha2;
+		
+	}else if(tablero[1][2].equalsIgnoreCase(ficha2) && tablero[2][2].equalsIgnoreCase(ficha2)) {
+		
+		tablero[0][2]=ficha2;
+		
+	}
+	
+	 
+	
+}
+
+public boolean circuloEsquinasGanar() {
+	boolean a = false;
+	if(a==false) {
+		 if(tablero[0][0].equalsIgnoreCase(ficha2) && tablero[1][1].equalsIgnoreCase(ficha2)&&tablero[2][2].equalsIgnoreCase("")) {
+
+			tablero[2][2]=ficha2;
+			a=true;
+		 	}
+		 	}
+	if(a==false) {
+		 if(tablero[0][0].equalsIgnoreCase(ficha2) && tablero[2][2].equalsIgnoreCase(ficha2)&&tablero[1][1].equalsIgnoreCase("")) {
+			
+			tablero[1][1]=ficha2;
+			a=true;
+		 	}
+		 	}
+	if(a==false) {
+		 if(tablero[1][1].equalsIgnoreCase(ficha2) && tablero[2][2].equalsIgnoreCase(ficha2)&&tablero[0][0].equalsIgnoreCase("")) {
+			
+			tablero[0][0]=ficha2;
+			a=true;
+		 	}
+		 	}
+	if(a==false) {
+		 if(tablero[0][2].equalsIgnoreCase(ficha2) && tablero[1][1].equalsIgnoreCase(ficha2)&&tablero[2][0].equalsIgnoreCase("")) {
+
+			tablero[2][0]=ficha2;
+			a=true;
+		 	}
+		 	}
+	if(a==false) {
+		 if(tablero[0][2].equalsIgnoreCase(ficha2) && tablero[2][0].equalsIgnoreCase(ficha2)&&tablero[1][1].equalsIgnoreCase("")) {
+			
+			tablero[1][1]=ficha2;
+			a=true;
+		 	}
+		 	}
+	if(a==false) {
+		 if(tablero[1][1].equalsIgnoreCase(ficha2) && tablero[2][0].equalsIgnoreCase(ficha2)&&tablero[0][2].equalsIgnoreCase("")) {
+			
+			tablero[0][2]=ficha2;
+			a=true;
+		 	}
+		 	}
+	
+	
+	
+	return a;
+	
+	
+}
+public boolean casosEspecialeciales() {
+	
+		boolean a= false;
+		int aux=0;
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+		if(tablero[i][j].equalsIgnoreCase(ficha1)) {
+			aux++;
+		}
+		if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+			aux++;
+		}
+			}
+		}
+		if(a==false && aux == 3) {
+			 if(tablero[1][0].equalsIgnoreCase(ficha1) && tablero[1][2].equalsIgnoreCase(ficha1)) {
+	
+				tablero[0][1]=ficha2;
+				a=true;
+			 	}
+			 	}
+		if(a==false && aux == 3 ) {
+			 if(tablero[0][1].equalsIgnoreCase(ficha1) && tablero[2][1].equalsIgnoreCase(ficha1)) {
+				
+				tablero[1][0]=ficha2;
+				a=true;
+			 	}
+			 	}
+		
+		if(a==false && aux == 3) {
+			 if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[2][1].equalsIgnoreCase(ficha1)) {
+	
+				tablero[1][0]=ficha2;
+				a=true;
+			 	}
+			 	}
+		if(a==false && aux == 3) {
+			 if(tablero[0][2].equalsIgnoreCase(ficha1) && tablero[2][1].equalsIgnoreCase(ficha1)) {
+				
+				tablero[1][2]=ficha2;
+				a=true;
+			 	}
+			 	}
+		
+		if(a==false && aux == 3) {
+			 if(tablero[0][0].equalsIgnoreCase(ficha1) && tablero[1][2].equalsIgnoreCase(ficha1)) {
+	
+				tablero[0][1]=ficha2;
+				a=true;
+			 	}
+			 	}
+		if(a==false && aux == 3) {
+			 if(tablero[2][0].equalsIgnoreCase(ficha1) && tablero[1][2].equalsIgnoreCase(ficha1)) {
+				
+				tablero[2][01]=ficha2;
+				a=true;
+			 	}
+			 	}
+		
+		if(a==false && aux == 3) {
+			 if(tablero[2][0].equalsIgnoreCase(ficha1) && tablero[0][1].equalsIgnoreCase(ficha1)) {
+	
+				tablero[1][0]=ficha2;
+				a=true;
+			 	}
+			 	}
+		if(a==false && aux == 3) {
+			 if(tablero[2][2].equalsIgnoreCase(ficha1) && tablero[0][1].equalsIgnoreCase(ficha1)) {
+				
+				tablero[1][2]=ficha2;
+				a=true;
+			 	}
+			 	}
+		
+		
+		if(a==false && aux == 3) {
+			 if(tablero[0][2].equalsIgnoreCase(ficha1) && tablero[1][0].equalsIgnoreCase(ficha1)) {
+	
+				tablero[0][1]=ficha2;
+				a=true;
+			 	}
+			 	}
+		if(a==false && aux == 3) {
+			 if(tablero[1][0].equalsIgnoreCase(ficha1) && tablero[2][2].equalsIgnoreCase(ficha1)) {
+				
+				tablero[2][1]=ficha2;
+				a=true;
+			 	}
+			 	}
+		
+		return a;
+		
+	}
+
+public boolean circuloFilas() {
+	
+	int i=0;
+	int aux=0;
+	int aux1=0;
+	int aux2=0;
+	int aux3=0;
+	int aux4=0;
+	int aux5=0;
+
+	boolean a =false;
+	
+	if(a==false) {
+	for(int j=0;j<3;j++) {
+	//estudio de las posiciones en la primera fila
+		if(tablero[i][j].equalsIgnoreCase("")) {
+			aux++;
+		
+		}
+		if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+			aux3++;
+		}
+		
+		
+	}
+	
+	if(aux3==1 && aux==2) {
+		circuloFila0();
+		a=true;
+	}
+	}
+	
+	if(a==false) {
+	i=1;
+	for(int j=0;j<3;j++) {
+		//estudio de las posiciones en la segunda fila
+		if(tablero[i][j].equalsIgnoreCase("")) {
+			aux1++;
+		
+		}
+		if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+			aux4++;
+		}
+		
+		
+	}
+	
+	if(aux4==1 && aux1==2) {
+		circuloFila1();
+		a=true;
+	
+	}
+	i=2;
+	for(int j=0;j<3;j++){
+		//estudio de las posiciones en la tercer fila
+		if(tablero[i][j].equalsIgnoreCase("")) {
+			aux2++;
+		
+		}
+		if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+			aux5++;
+		}
+	}
+	
+	if(aux5==1 && aux2==2) {
+		circuloFila2();
+		a=true;
+		
+		
+	}
+		
+	
+	}
+
+
+	
+			
+	
+	return a;
+	
+}
+
+	public void circuloFila0() {
+		
+		
+		if(tablero[0][0].equalsIgnoreCase("") && tablero[0][2].equalsIgnoreCase("")) {
+			if(random()==0) {
+			tablero[0][0]=ficha2;
+			}else {
+				tablero[0][2]=ficha2;
+			}
+		}else if(tablero[0][0].equalsIgnoreCase("") && tablero[0][1].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][0]=ficha2;
+				}else {
+					tablero[0][1]=ficha2;
+				}
+			
+		}else if(tablero[0][1].equalsIgnoreCase("") && tablero[0][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][1]=ficha2;
+				}else {
+					tablero[0][2]=ficha2;
+				}
+			
+		}
+		
+	}
+	public void circuloFila1() {
+		
+		
+		if(tablero[1][0].equalsIgnoreCase("") && tablero[1][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[1][0]=ficha2;
+				}else {
+					tablero[1][2]=ficha2;
+				}
+			
+		}else if(tablero[1][0].equalsIgnoreCase("") && tablero[1][1].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[1][0]=ficha2;
+				}else {
+					tablero[1][1]=ficha2;
+				}
+			
+		}else if(tablero[1][1].equalsIgnoreCase("") && tablero[1][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[1][1]=ficha2;
+				}else {
+					tablero[1][2]=ficha2;
+				}
+			
+		}
+		
+	}
+	public void circuloFila2() {
+		
+		if(tablero[2][0].equalsIgnoreCase("") && tablero[2][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[2][0]=ficha2;
+				}else {
+					tablero[2][2]=ficha2;
+				}
+			
+		}else if(tablero[2][0].equalsIgnoreCase("") && tablero[2][1].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[2][0]=ficha2;
+				}else {
+					tablero[2][1]=ficha2;
+				}
+			
+		}else if(tablero[2][1].equalsIgnoreCase("") && tablero[2][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[2][1]=ficha2;
+				}else {
+					tablero[2][2]=ficha2;
+				}
+			
+		}
+	}
+	
+	public boolean circuloColumnas() {
+		
+		int j=0;
+		int aux=0;
+		int aux1=0;
+		int aux2=0;
+		int aux3=0;
+		int aux4=0;
+		int aux5=0;
+	
+		boolean a = false;
+		
+		if(a==false) {
+		for(int i=0;i<3;i++) {
+			//estudio de las posiciones en la primer columna
+			if(tablero[i][j].equalsIgnoreCase("")) {
+				aux++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux3++;
+			}
+			
+			
+		}
+		
+		if(aux==2 && aux3==1) {
+			circuloColumna0();
+			a=true;
+		}
+		}
+		
+		if(a==false) {
+		j=1;
+		for(int i=0;i<3;i++) {
+			//estudio de las posiciones en la segunda columna
+			if(tablero[i][j].equalsIgnoreCase("")) {
+				aux1++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux4++;
+			}
+			
+			
+		}
+		
+		if(aux1==2 && aux4==1) {
+			circuloColumna1();
+			a=true;
+		}
+		}
+		
+		if(a==false) {
+		j=2;
+		for(int i=0;i<3;i++){
+			//estudio de las posiciones en la tercera columna
+			if(tablero[i][j].equalsIgnoreCase("")) {
+				aux2++;
+			
+			}
+			if(tablero[i][j].equalsIgnoreCase(ficha2)) {
+				aux5++;
+			}
+		}
+		
+		if(aux2==2 && aux5==1) {
+			circuloColumna2();
+			a=true;
+		}
+		}
+		
+		return a;
+	}
+	
+	
+	public void circuloColumna0() {
+		
+		if(tablero[0][0].equalsIgnoreCase("") && tablero[2][0].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][0]=ficha2;
+				}else {
+					tablero[2][0]=ficha2;
+				}
+			
+		}else if(tablero[0][0].equalsIgnoreCase("") && tablero[1][0].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][0]=ficha2;
+				}else {
+					tablero[1][0]=ficha2;
+				}
+			
+		}else if(tablero[1][0].equalsIgnoreCase("") && tablero[2][0].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[1][0]=ficha2;
+				}else {
+					tablero[2][0]=ficha2;
+				}
+			
+		}
+		
+		
+		
+	}
+	public void circuloColumna1() {
+		
+		if(tablero[0][1].equalsIgnoreCase("") && tablero[2][1].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][1]=ficha2;
+				}else {
+					tablero[2][1]=ficha2;
+				}
+			
+		}else if(tablero[0][1].equalsIgnoreCase("") && tablero[1][1].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][1]=ficha2;
+				}else {
+					tablero[1][1]=ficha2;
+				}
+			
+		}else if(tablero[1][1].equalsIgnoreCase("") && tablero[2][1].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[1][1]=ficha2;
+				}else {
+					tablero[2][1]=ficha2;
+				}
+			
+		}
+		
+		
+		
+	}
+	public void circuloColumna2() {
+		
+		if(tablero[0][2].equalsIgnoreCase("") && tablero[2][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][2]=ficha2;
+				}else {
+					tablero[2][2]=ficha2;
+				}
+			
+		}else if(tablero[0][2].equalsIgnoreCase("") && tablero[1][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[0][2]=ficha2;
+				}else {
+					tablero[1][2]=ficha2;
+				}
+			
+		}else if(tablero[1][2].equalsIgnoreCase("") && tablero[2][2].equalsIgnoreCase("")) {
+			
+			if(random()==0) {
+				tablero[1][2]=ficha2;
+				}else {
+					tablero[2][2]=ficha2;
+				}
+			
+		}
+	
+	
+	
+	}
+	
+	public boolean circuloEsquinas() {
+		
+		boolean a = false;
+		if(a==false) {
+			 if(tablero[0][0].equalsIgnoreCase("") &&tablero[1][1].equalsIgnoreCase("")) {
+
+				 if(random()==0) {
+						tablero[0][0]=ficha2;
+						}else {
+							tablero[1][1]=ficha2;
+						}
+				a=true;
+			 	}
+			 	}
+		if(a==false) {
+			 if(tablero[0][0].equalsIgnoreCase("") &&tablero[2][2].equalsIgnoreCase("")) {
+				
+				 if(random()==0) {
+						tablero[0][0]=ficha2;
+						}else {
+							tablero[2][2]=ficha2;
+						}
+				a=true;
+			 	}
+			 	}
+		if(a==false) {
+			 if(tablero[1][1].equalsIgnoreCase("") &&tablero[2][2].equalsIgnoreCase("")) {
+
+				 if(random()==0) {
+						tablero[1][1]=ficha2;
+						}else {
+							tablero[2][2]=ficha2;
+						}
+				a=true;
+			 	}
+			 	}
+		if(a==false) {
+			 if(tablero[0][2].equalsIgnoreCase("") &&tablero[1][1].equalsIgnoreCase("")) {
+				
+				 if(random()==0) {
+						tablero[0][2]=ficha2;
+						}else {
+							tablero[1][1]=ficha2;
+						}
+				a=true;
+			 	}
+			 	}
+		if(a==false) {
+			 if(tablero[0][2].equalsIgnoreCase("") && tablero[2][0].equalsIgnoreCase("")) {
+
+				 if(random()==0) {
+						tablero[0][2]=ficha2;
+						}else {
+							tablero[2][0]=ficha2;
+						}
+				a=true;
+			 	}
+			 	}
+		if(a==false) {
+			 if(tablero[2][0].equalsIgnoreCase("") && tablero[1][1].equalsIgnoreCase("")) {
+				
+				 if(random()==0) {
+						tablero[2][0]=ficha2;
+						}else {
+							tablero[1][1]=ficha2;
+						}
+				a=true;
+			 	}
+			 	}
+		
+		
+		return a;
+		
+	}
+	
+	
+	
+	
+	public boolean colocarCirculo() {
+		
+		boolean a=false;
+		
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				if(a==false ) {
+				if(tablero[i][j].equalsIgnoreCase("")) {
+					tablero[i][j]=ficha2 ;
+					a=true;
+				}
+				
+				}
+				}
+			}
+		
+		return a;
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	public int random() {
+		
+		Random r = new Random();
+		int r1 = r.nextInt(2) ;
+		
+		
+		
+		return r1;
+		
+		
 		
 		
 	}
