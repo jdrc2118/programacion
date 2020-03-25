@@ -43,6 +43,7 @@ public class Controller implements ActionListener  {
 		if(e.getActionCommand().equals("Jugar")) {
 			
 			conexion_matrices();
+			v.getPanel_1().bloquear();
 			verificarLetras();
 			verificarGanador();
 			

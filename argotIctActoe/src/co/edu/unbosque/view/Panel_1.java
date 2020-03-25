@@ -24,7 +24,7 @@ public class Panel_1 extends JPanel {
 		setVisible(true);
 }
 
-	private void inicializar() {
+	public void inicializar() {
 		
 		Font fuente = new Font("calibri",3,70);
 		
@@ -43,6 +43,30 @@ public class Panel_1 extends JPanel {
 		
 		
 	}
+	
+	public void bloquear() {
+		
+		for(int i = 0; i<filas; i++){
+			for(int j = 0; j<columnas; j++){
+			
+				if(tablero[i][j].getText().equals("")) {
+					
+					
+				}else {
+					tablero[i][j].setEnabled(false);
+					
+				}
+				
+				
+				}
+			}
+				
+		
+		
+		
+	}
+	
+	
 	
 	
 	
