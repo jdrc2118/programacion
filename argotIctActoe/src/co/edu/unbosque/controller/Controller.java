@@ -28,17 +28,19 @@ public class Controller implements ActionListener {
 		if (e.getActionCommand().equals("Jugar")) {
 
 			// activar con el boton jugar los diferentes metodos
-
-			conexion_matrices();
+			transpasoMatrizLogica();
+			if(verificarLetras()){
+			
+			transpasoMatrizVista();
 			v.getPanel_1().bloquear();
-			verificarLetras();
+			
 			verificarGanador();
-
+			}
 		}
 
 	}
 
-	public void conexion_matrices() {
+	public void transpasoMatrizLogica() {
 
 		// transpaso de jugada del circulo hacia la ventana principal
 		for (int i = 0; i < 3; i++) {
@@ -49,7 +51,8 @@ public class Controller implements ActionListener {
 
 			}
 		}
-
+	}
+      public void transpasoMatrizVista(){
 		l.jugar();
 		// transpaso de jugada de la persona a la matriz logica
 		for (int i = 0; i < 3; i++) {
@@ -62,13 +65,20 @@ public class Controller implements ActionListener {
 
 	}
 
-	public void verificarLetras() {
+	public boolean verificarLetras() {
+		boolean a = true;
 		// metodo para admitir solo letra X y O
 		if (!l.verificarLetras()) {
 
 			v.mostrarMensaje("Ingreso una letra no valida");
-
+a = false;
 		}
+		if (!l.fichaPersona() ){
+			
+			v.mostrarMensaje(" usted es la ficha x ");
+			a = false;
+		}
+		return a;
 	}
 	
 	
@@ -88,10 +98,11 @@ public class Controller implements ActionListener {
 			v.mostrarMensaje("Empate. No pudimos");
 
 		}
-
 	}
-
 }
+
+
+
 
 	
 	

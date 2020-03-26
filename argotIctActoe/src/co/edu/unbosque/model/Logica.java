@@ -59,7 +59,34 @@ public class Logica {
 		
 	}
 	
-	
+	public boolean fichaPersona() {
+
+		boolean a = false;
+		int auxx = 0 ;
+		int auxo = 0 ;
+		
+		if (a == false) {
+			
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				
+					if(tablero[i][j].equalsIgnoreCase(ficha1)){
+						auxx++;
+					}
+					if(tablero[i][j].equalsIgnoreCase(ficha2)){
+						auxo++;
+					}
+
+				
+			}
+		}
+		if(auxx>auxo){
+			a = true;
+		}
+		}
+		return a;
+
+	}
 	
 
 	public void mayusculas() {
