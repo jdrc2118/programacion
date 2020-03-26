@@ -2,7 +2,7 @@ package co.edu.unbosque.model;
 
 import java.util.Random;
 
-public class Logica {
+public class MatrizLogica {
 
 	private String tablero[][];
 	private int filas;
@@ -11,7 +11,7 @@ public class Logica {
 	private String ficha1;
 	private String ficha2;
 
-	public Logica() {
+	public MatrizLogica() {
 
 		// inicializador matriz y variables
 		filas = 3;

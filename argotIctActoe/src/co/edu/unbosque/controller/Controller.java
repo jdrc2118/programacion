@@ -5,18 +5,18 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
-import co.edu.unbosque.model.Logica;
+import co.edu.unbosque.model.MatrizLogica;
 import co.edu.unbosque.view.View;
 
 public class Controller implements ActionListener {
 
 	public View v;
-	public Logica l;
+	public MatrizLogica l;
 
 	public Controller() {
 
 		// inicializacion variables y activacion del action listener
-		l = new Logica();
+		l = new MatrizLogica();
 		v = new View();
 		v.getPanel_2().getJugar().addActionListener(this);
 
