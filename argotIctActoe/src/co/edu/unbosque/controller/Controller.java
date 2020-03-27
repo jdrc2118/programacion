@@ -28,10 +28,10 @@ public class Controller implements ActionListener {
 		if (e.getActionCommand().equals("Jugar")) {
 
 			// activar con el boton jugar los diferentes metodos
-			transpasoMatrizLogica();
+			traspasoMatrizLogica();
 			if(verificarLetras()){
 			
-			transpasoMatrizVista();
+			traspasoMatrizVista();
 			v.getPanel_1().bloquear();
 			
 			verificarGanador();
@@ -40,7 +40,7 @@ public class Controller implements ActionListener {
 
 	}
 
-	public void transpasoMatrizLogica() {
+	public void traspasoMatrizLogica() {
 
 		// transpaso de jugada del circulo hacia la ventana principal
 		for (int i = 0; i < 3; i++) {
@@ -52,7 +52,7 @@ public class Controller implements ActionListener {
 			}
 		}
 	}
-      public void transpasoMatrizVista(){
+      public void traspasoMatrizVista(){
 		l.jugar();
 		// transpaso de jugada de la persona a la matriz logica
 		for (int i = 0; i < 3; i++) {
@@ -71,7 +71,7 @@ public class Controller implements ActionListener {
 		if (!l.verificarLetras()) {
 
 			v.mostrarMensaje("Ingreso una letra no valida");
-a = false;
+			a = false;
 		}
 		if (!l.fichaPersona() ){
 			
