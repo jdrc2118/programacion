@@ -30,7 +30,7 @@ public class View extends JFrame{
 			 setDefaultCloseOperation(EXIT_ON_CLOSE);
 			 getContentPane().setBackground(Color.white);
 			 
-			inicializar();
+			inicializarComponentes();
 			 
 			 setLocationRelativeTo(null);
 			 setVisible(true);
@@ -38,7 +38,7 @@ public class View extends JFrame{
 
 
 
-		private void inicializar() {
+		private void inicializarComponentes() {
 			
 			
 			 panel_1 = new Panel_1();

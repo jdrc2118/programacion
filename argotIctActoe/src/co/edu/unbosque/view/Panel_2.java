@@ -11,17 +11,17 @@ public class Panel_2 extends JPanel{
 	
 	
 	private JButton jugar;
-	private ImageIcon imagen;
+	
 	
 	public Panel_2() {
 		
 		setLayout(null);
-        inicializar();
+        inicializarComponentes();
 		
 		setVisible(true);
 	}
 
-	private void inicializar() {
+	private void inicializarComponentes() {
 		
 		
 		jugar= new JButton("Jugar");
@@ -40,20 +40,7 @@ public class Panel_2 extends JPanel{
 		this.jugar = jugar;
 	}
 
-	public ImageIcon getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(ImageIcon imagen) {
-		this.imagen = imagen;
-	}
-
-	@Override
-	public void paintComponents(Graphics g) {
-		Dimension tam=getSize();
-		imagen = new ImageIcon(new ImageIcon(getClass().getResource("..//imagenes//triqui.png")).getImage());
-		g.drawImage(imagen.getImage(), 0, 0, tam.width, tam.height, null);
-	}
+	
 	
 	
 	

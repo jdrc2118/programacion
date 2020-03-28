@@ -32,7 +32,7 @@ public class Controller implements ActionListener {
 			if(verificarLetras()){
 			
 			traspasoMatrizVista();
-			v.getPanel_1().bloquear();
+			v.getPanel_1().bloquearCuadrosUtilizados();
 			
 			verificarGanador();
 			}

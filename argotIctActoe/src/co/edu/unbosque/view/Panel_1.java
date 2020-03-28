@@ -20,11 +20,11 @@ public class Panel_1 extends JPanel {
 	public Panel_1() {
 		
 		setLayout(new GridLayout(filas,columnas));
-		inicializar();
+		inicializarComponentes();
 		setVisible(true);
 }
 
-	public void inicializar() {
+	public void inicializarComponentes() {
 		
 		Font fuente = new Font("calibri",3,70);
 		
@@ -44,7 +44,7 @@ public class Panel_1 extends JPanel {
 		
 	}
 	
-	public void bloquear() {
+	public void bloquearCuadrosUtilizados() {
 		
 		for(int i = 0; i<filas; i++){
 			for(int j = 0; j<columnas; j++){
