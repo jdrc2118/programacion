@@ -70,12 +70,12 @@ public class Controller implements ActionListener {
 		// metodo para admitir solo letra X y O
 		if (!l.verificarLetras()) {
 
-			v.mostrarMensaje("Ingreso una letra no valida");
+			v.mostrarMensaje("Debes colocar una X para jugar conmigo");
 			a = false;
 		}
 		if (!l.fichaPersona() ){
 			
-			v.mostrarMensaje(" usted es la ficha x ");
+			v.mostrarMensaje(" Usted es la ficha X ");
 			a = false;
 		}
 		return a;
