@@ -68,18 +68,24 @@ public class Controller implements ActionListener {
 	public boolean verificarLetras() {
 		boolean a = true;
 		// metodo para admitir solo letra X y O
-		if (!l.verificarLetras()) {
+		if (a) {
+			if (!l.verificarLetras()) {
 
-			v.mostrarMensaje("Debes colocar una X para jugar conmigo");
-			a = false;
+				v.mostrarMensaje("Debes colocar una X para jugar conmigo");
+				a = false;
+			}	
 		}
-		if (!l.fichaPersona() ){
-			
-			v.mostrarMensaje(" Usted es la ficha X ");
-			a = false;
+		if(a) {
+			if (!l.fichaPersona() ){
+				
+				v.mostrarMensaje(" Usted es la ficha X ");
+				a = false;
+			}
 		}
-		return a;
-	}
+			return a;
+		
+		}
+		
 	
 	
 
